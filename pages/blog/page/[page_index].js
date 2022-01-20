@@ -1,12 +1,12 @@
-import React, { useEffect, useContext } from 'react';
-import Layout from '@/components/Layout';
-import Post from '@/components/Post';
-import Pagination from '@/components/Pagination';
-import CategoryList from '@/components/CategoryList';
-import { POST_PER_PAGE } from '@/config/index';
-import { DisplayedContext } from '@/context/DisplayedContext';
-import { API_URL } from '@/config/index';
-import Head from 'next/head';
+import React, { useEffect, useContext } from "react";
+import Layout from "@/components/Layout";
+import Post from "@/components/Post";
+import Pagination from "@/components/Pagination";
+import CategoryList from "@/components/CategoryList";
+import { POST_PER_PAGE } from "@/config/index";
+import { DisplayedContext } from "@/context/DisplayedContext";
+import { API_URL } from "@/config/index";
+import Head from "next/head";
 
 export default function HomePage({ posts, numPages, currentPage, categories }) {
   const { aside, setMenuCategories } = useContext(DisplayedContext);
@@ -20,20 +20,20 @@ export default function HomePage({ posts, numPages, currentPage, categories }) {
       <div className="lg:flex">
         <Head>
           <title>
-            {currentPage === 1 ? 'Recent' : 'Former'} Posts - Page {currentPage}{' '}
+            {currentPage === 1 ? "Recent" : "Former"} Posts - Page {currentPage}{" "}
             of {numPages}
           </title>
           <meta
             name="description"
             content={
-              'Find a lot of great posts that allow you to broaden their knowledge about the society, science, psychology, worldviews, atheism, human nature and much more.'
+              "Find a lot of great posts that allow you to broaden their knowledge about the society, science, psychology, worldviews, atheism, human nature and much more."
             }
           ></meta>
         </Head>
         {/*List of categories*/}
         <aside
           className={`${
-            !aside ? 'hidden' : ''
+            !aside ? "hidden" : ""
           } h-full sticky top-12 md:top-16 lg:top-24 lg:w-1/6 transition duration-500 ease `}
         >
           <CategoryList categories={categories} />
@@ -41,11 +41,11 @@ export default function HomePage({ posts, numPages, currentPage, categories }) {
         {/* end of list */}
         <div
           className={`${
-            !aside ? 'lg:w-6/6' : 'lg:w-5/6'
+            !aside ? "lg:w-6/6" : "lg:w-5/6"
           } bg-colour-111 transition duration-500 ease `}
         >
           <h1 className="hidden p-5 px-6 text-xl font-semibold text-gray-400 md:block lg:text-2xl">
-            {currentPage === 1 ? 'The Latest' : 'Archives'}
+            {currentPage === 1 ? "The Latest" : "Archives"}
           </h1>
 
           <div className="grid md:grid-cols-1 lg:grid-cols-1">
@@ -64,8 +64,6 @@ export default function HomePage({ posts, numPages, currentPage, categories }) {
 }
 
 export async function getStaticPaths() {
-  // const files = fs.readdirSync(path.join('posts'));
-  // const numPages = Math.ceil(files.length / POST_PER_PAGE);
   const res = await fetch(`${API_URL}/posts`);
   const posts = await res.json();
   const numPages = Math.ceil(posts.length / POST_PER_PAGE);
@@ -85,19 +83,17 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   const page = parseInt((params && params.page_index) || 1);
 
-  // const files = fs.readdirSync(path.join('posts'));
-  // const posts = getPosts();
   const res = await fetch(`${API_URL}/posts?_sort=date:DESC`);
   const posts = await res.json();
   // GET CATEGORIES
-  const categories = posts.map(post => post.category);
+  const categories = posts.map((post) => post.category);
   const uniqueCategories = [...new Set(categories)];
 
   const numPages = Math.ceil(posts.length / POST_PER_PAGE);
   const pageIndex = page - 1;
   const orderedPosts = posts.slice(
     pageIndex * POST_PER_PAGE,
-    (pageIndex + 1) * POST_PER_PAGE,
+    (pageIndex + 1) * POST_PER_PAGE
   );
   return {
     props: {

@@ -1,12 +1,12 @@
-import Link from 'next/link';
-import Layout from '@/components/Layout';
-import Post from '@/components/Post';
-import React, { useEffect, useContext } from 'react';
-import { DisplayedContext } from '@/context/DisplayedContext';
-import ExtraSpace from '@/components/ExtraSpace';
-import ExtraSpaceAside from '@/components/ExtraSpaceAside';
-import { API_URL } from '@/config/index';
-import Head from 'next/head';
+import Link from "next/link";
+import Layout from "@/components/Layout";
+import Post from "@/components/Post";
+import React, { useEffect, useContext } from "react";
+import { DisplayedContext } from "@/context/DisplayedContext";
+import ExtraSpace from "@/components/ExtraSpace";
+import ExtraSpaceAside from "@/components/ExtraSpaceAside";
+import { API_URL } from "@/config/index";
+import Head from "next/head";
 
 export default function HomePage({ posts }) {
   const { setMenuCategories, setAside } = useContext(DisplayedContext);
@@ -17,7 +17,7 @@ export default function HomePage({ posts }) {
 
   let extra;
   const limiter = posts.map((post, index) => {
-    if (post.class === 'extra') {
+    if (post.class === "extra") {
       !extra ? (extra = <ExtraSpace key={index} post={post} />) : null;
     }
   });
@@ -32,7 +32,7 @@ export default function HomePage({ posts }) {
           <meta
             name="description"
             content={
-              'Blog talks about the critical assimilation of high and low culture that expand your knowledge about the society, science, psychology, worldviews, human nature'
+              "Blog talks about the critical assimilation of high and low culture that expand your knowledge about the society, science, psychology, worldviews, human nature"
             }
           ></meta>
         </Head>
@@ -43,13 +43,12 @@ export default function HomePage({ posts }) {
       <div className="grid grid-cols-1 px-4 lg:grid-cols-3 bg-colour-111 md:px-6">
         <div className="grid hidden col-span-2 lg:block">{extra}</div>
         <div className="flex flex-col min-h-0 px-3 divide-y-2 divide-y divide-gray-200 lg:pt-6 lg:px-6">
-          {posts            
-            .map(
-              (post, index) =>
-                post.class === 'extras' && (
-                  <ExtraSpaceAside key={index} post={post} />
-                ),
-            )}
+          {posts.map(
+            (post, index) =>
+              post.class === "extras" && (
+                <ExtraSpaceAside key={index} post={post} />
+              )
+          )}
         </div>
       </div>
       {/* END EXTRA SPACE */}
@@ -61,11 +60,11 @@ export default function HomePage({ posts }) {
         <h1 className="px-4 pt-3 pb-2 text-xl font-semibold text-gray-400 lg:text-2xl lg:py-4 lg:pt-8 md:px-6">
           The Latest
         </h1>
-        {/* <h2>OHH Home Page</h2> */}
         <div className="text-gray-800">
           {posts.map(
-            post => post.class === 'post' && <Post key={post.id} post={post} />,
-          )}         
+            (post) =>
+              post.class === "post" && <Post key={post.id} post={post} />
+          )}
         </div>
         <div className="px-4 mt-1 md:px-6 md:-mt-4">
           <Link href="/blog">

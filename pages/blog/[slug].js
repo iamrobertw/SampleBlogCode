@@ -1,13 +1,12 @@
-import Image from 'next/image';
-import React, { useEffect, useContext } from 'react';
-import Layout from '@/components/Layout';
-import CategoryLabel from '@/components/CategoryLabel';
-import PreviousPage from '@/components/PreviousPage';
-import { DisplayedContext } from '@/context/DisplayedContext';
-import { useRouter } from 'next/router';
-import { API_URL } from '@/config/index';
-import ReactMarkdown from 'react-markdown';
-import Head from 'next/head';
+import Image from "next/image";
+import React, { useEffect, useContext } from "react";
+import Layout from "@/components/Layout";
+import CategoryLabel from "@/components/CategoryLabel";
+import PreviousPage from "@/components/PreviousPage";
+import { DisplayedContext } from "@/context/DisplayedContext";
+import { useRouter } from "next/router";
+import ReactMarkdown from "react-markdown";
+import Head from "next/head";
 
 export default function PostPage({ post }) {
   const router = useRouter();
@@ -23,8 +22,10 @@ export default function PostPage({ post }) {
       <div className="w-full px-6 py-0 bg-white lg:mt-6 sm:py-1 md:py-2 lg:py-4">
         <Head>
           <title>{post.title}</title>
-          <meta name="description" content={`The purpose of the post is to look at important issues and intellectual thoughts related to them in the category of ${post.category} explored by ${post.author}}`}></meta>
-
+          <meta
+            name="description"
+            content={`The purpose of the post is to look at important issues and intellectual thoughts related to them in the category of ${post.category} explored by ${post.author}}`}
+          ></meta>
         </Head>
         <div className="flex items-center justify-between mt-4 ">
           <h1 className="mb-4 text-3xl font-extrabold sm:text-5xl lg:text-6xl lg:mb-7">
@@ -38,10 +39,10 @@ export default function PostPage({ post }) {
         <div className="relative flex mb-2 lg:mb-6">
           <PreviousPage />
           <span className="mr-1 text-gray-400">
-            {new Date(post.date).toLocaleDateString('en-GB', {
-              year: 'numeric',
-              month: 'long',
-              day: '2-digit',
+            {new Date(post.date).toLocaleDateString("en-GB", {
+              year: "numeric",
+              month: "long",
+              day: "2-digit",
             })}
           </span>
           <CategoryLabel>{post.category}</CategoryLabel>
@@ -68,7 +69,7 @@ export default function PostPage({ post }) {
           Go Back
         </button>
         <div className="priv-bottom-border"></div>
-      </div>      
+      </div>
     </Layout>
   );
 }

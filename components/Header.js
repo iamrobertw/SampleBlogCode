@@ -1,13 +1,13 @@
-import Link from 'next/link';
-import Image from 'next/image';
-import React, { useContext } from 'react';
-import { DisplayedContext } from '@/context/DisplayedContext';
-import Search from './Search';
+import Link from "next/link";
+import Image from "next/image";
+import React, { useContext } from "react";
+import { DisplayedContext } from "@/context/DisplayedContext";
+import Search from "./Search";
 
 export default function Header() {
   const { aside, setAside, menuCategories, search, setSearch } =
     useContext(DisplayedContext);
-  const site = !menuCategories ? '/blog' : '/';
+  const site = !menuCategories ? "/blog" : "/";
 
   return (
     <header className="sticky top-0 z-50 w-full text-gray-100 bg-gray-900">
@@ -37,18 +37,18 @@ export default function Header() {
           <a
             onClick={() => setAside(!aside)}
             className={`${
-              !menuCategories ? 'hidden' : ''
+              !menuCategories ? "hidden" : ""
             } mx-2 sm:mx-5 cursor-pointer uppercase text-orange-555 lg:hover:text-green-400 duration-200`}
           >
-            {`${!aside ? 'Category' : 'Close Category'}`}
+            {`${!aside ? "Category" : "Close Category"}`}
           </a>
           <a
             onClick={() => setSearch(!search)}
             className={`mx-2 cursor-pointer uppercase lg:hover:text-green-400 ${
-              menuCategories && 'hidden'
-            } ${search && 'hidden lg:block'}`}
+              menuCategories && "hidden"
+            } ${search && "hidden lg:block"}`}
           >
-            {`${!search ? 'Search' : 'Close Search'}`}
+            {`${!search ? "Search" : "Close Search"}`}
           </a>
           <Link href={site}>
             <a
@@ -57,7 +57,7 @@ export default function Header() {
               }}
               className="mx-2 uppercase duration-200 cursor-pointer sm:mx-5 lg:hover:text-green-400"
             >
-              {!menuCategories ? 'Blog' : 'Home'}
+              {!menuCategories ? "Blog" : "Home"}
             </a>
           </Link>
         </nav>
