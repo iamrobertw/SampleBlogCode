@@ -1,2 +1,3 @@
 # SampleBlogCode
-Sample blog code (it is only a part of working blog code)
+Sample blog code 
+It is only a part of blog code working on tyhis page: https://mindsspace.eu/
