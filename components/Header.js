@@ -22,7 +22,7 @@ export default function Header() {
         </div>
         <div className="sm:hidden">
           <Link href="/">
-            <a className="flex items-center justify-start ml-1 mr-2 font-medium title-font sm:ml-3 sm:mr-3 md:mb-0">
+            <a className="flex ml-1 mr-2 font-medium tify-start z-oitems-center title-font sm:ml-3 sm:mr-3 md:mb-0">
               <Image
                 src="/images/logo-small.png"
                 width={32}

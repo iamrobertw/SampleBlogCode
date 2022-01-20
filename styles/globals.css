@@ -1,16 +1,100 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.priv-bottom-border {
+  @apply border-t lg:border-t-2 border-gray-200 lg:mt-8;
+}
+.priv-bottom-border-bold {
+  @apply border-t-4 lg:border-t-2 border-gray-200 lg:mt-8;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+p {
+  font-size: 1rem;
+  margin: 15px 0;
+  line-height: 1.5;
 }
 
-* {
-  box-sizing: border-box;
+.blog-text ul,
+ol {
+  font-size: 110%;
+  line-height: 2.3;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.blog-text pre {
+  background: #f4f4f4;
+  padding: 20px;
+  margin: 20px 0;
+  line-height: 2.3;
+}
+
+.blog-text h1 {
+  font-size: 40px;
+  font-weight: 700;
+}
+
+.blog-text h2,
+.blog-text h3,
+.blog-text h4,
+.blog-text h5 {
+  font-size: 24px;
+  font-weight: 900;
+  line-height: 1.4;
+  
+}
+.img {
+  width: 100%;
+  height: calc(210px * 1.6);
+}
+.back {
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transform: translateX(1.75rem);
+  transition: all 0.3s;
+  border: none;
+  outline: none;
+}
+.back:hover {
+  transform: translateX(0);
+  border-color: transparent !important;
+  border: none;
+  outline: none;
+}
+.back:focus,
+:active {
+  border-color: transparent !important;
+  outline: none;
+}
+
+@keyframes goback {
+  0% {
+    background-color: white;
+    color: rgba(16, 185, 129);
+  }
+  30% {
+    background-color: black;
+    color: rgba(243, 244, 246);
+    transition-duration: 500ms;
+  }
+  100% {
+    background-color: black;
+    color: rgba(243, 244, 246);
+  }
+}
+.goBack:hover {
+  animation: goback 1s;
+  animation-delay: 0.2s;
+  animation-fill-mode: forwards;
+  border: none;
+  outline: none;
+}
+.goBack:focus,
+:active {
+  border-color: transparent !important;
+  outline: none;
 }
