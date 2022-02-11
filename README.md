@@ -1,1 +1,1 @@
-## Sample blog code. This is just part of the blog code that works on this website: https://mindsspace.eu/ ##
+## Sample blog code. This is just part of the blog front end code that works on this website: https://mindsspace.eu/ Project is made in Server Side Rendering technology. So apart from front end is the back end as well. Used Heroku, Strapi, Vercel and Claudinary.
